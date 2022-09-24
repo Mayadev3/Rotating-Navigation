@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rotating Navigation</title>
+  </head>
+  <body #body>
+    <div class="container">
+      <div class="circle-container">
+        <div class="circle">
+          <button id="close"><i class="fas fa-times"></i></button>
+          <button id="open"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+      <div class="content">
+        <h1>All About Cats</h1>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+          dignissimos doloribus animi, ut soluta pariatur nihil corporis harum
+          nam nisi. Ex accusamus neque laboriosam, corporis fuga obcaecati
+          inventore quasi quibusdam natus culpa porro ratione numquam aut
+          molestias odio illum, maiores animi! Distinctio dolore voluptatum
+          consectetur a excepturi illo repellendus molestias, deleniti ad
+          dolorem libero, ipsam fuga eius iure eveniet qui incidunt voluptates
+          quas at tenetur temporibus! Sit reiciendis sunt enim perferendis eos
+          esse voluptatem vero, voluptate eaque eum excepturi temporibus
+          veritatis sint optio fuga, consequatur veniam neque. Aliquam, maiores
+          dolore. Cum, asperiores id! Eaque soluta perspiciatis doloribus
+          officia earum suscipit!
+        </p>
+        <img
+          src="https://images.unsplash.com/photo-1570347929626-2bbc8032d98b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80"
+          alt="doggy"
+        />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae,
+          inventore totam vero incidunt nulla asperiores ducimus similique alias
+          aliquam error expedita temporibus dolorem facilis mollitia ratione
+          distinctio at blanditiis debitis aliquid voluptates reprehenderit.
+          Praesentium ipsa dolore aspernatur! Ipsa, impedit neque repellendus
+          earum excepturi quo reprehenderit, blanditiis dicta alias, natus sunt
+          assumenda a quia perferendis corrupti. Dolor consequatur quo, vel et
+          consectetur obcaecati nihil! Explicabo sunt pariatur enim corporis
+          atque molestiae architecto odit nesciunt ratione cupiditate?
+        </p>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><i class="fas fa-home"></i>Home</li>
+        <li><i class="fas fa-user-alt"></i>About</li>
+        <li><i class="fas fa-envelope"></i>Contact</li>
+      </ul>
+    </nav>
+    <script src="/script.js"></script>
+  </body>
+</html>
+<!--.container {
+  background-color: #fff;
+  transition: transform 0.5s linear; /* linear means it keeps it at one speed throughout..with ease it starts slow and goes faster*/
+  transform-origin: top left;
+  width: 100vw; /*the container take the whole page width*/
+  min-height: 100vh; /*if i just put height:100vh, it will only take the height of the height of the screen, but the content has a bigger height than the viewport height so it will over flow and the bottom paragraph will disappear behind the image, so we need min-height to be 100vh so now all the content can be as big as i want it in height without anything disappearing behind*/
+  padding: 40px;
+}
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+.container img {
+  max-width: 100%; /* 100% of its container*/
+}
+.circle-container {
+  position: fixed; /*the minute you put the position fixed, the container goes from being as wide as the screen to the width of the content*/
+  top: -100px;
+  left: -100px;...
+}
+.circle {
+  background-color: #ff7979;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.5s linear;
+}
+.circle button {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+}
+.circle button#open {
+  left: 60%;
+  top: 70%;
+}
+.circle button#close {
+  left: 20%;
+  top: 60%;
+  /*transform: rotate(90deg);
+  transform-origin: top left;*/
+}
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+.content {
+  max-width: 1000px; /*so that no matter how much more you expand the screen, the width of the content doesn't exceed 1000px, if it does then it looks horrible*/
+  margin: 50px auto;
+}
+.content h1 {
+  margin: 0; /*so that it stays clos to the small element instead of using line height*/
+}
+.content small {
+  color: #555;
+  font-style: italic;
+}
+.content p {
+  color: #333;
+  line-height: 1.5;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  bottom: 40px;
+  z-index: 100; /*so it is on top*/
+}
+nav ul {
+  list-style: none;
+  padding-left: 50px;
+}
+nav ul li {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 40px auto;
+  transform: translateX(-100%);
+  /* this is the starting position so it is hiding */
+  transition: transform 0.4s ease-in;
+}
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+nav ul li + li {
+  /* here we are targeting the li after the initial li*/
+  margin-left: 15px;
+  transform: translateX(-150%); /*this -150 overrides the previous -100*/
+}
+nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%); /*this -200 overrides the previous -100 */
+}
+.container.show-nav + nav li {
+  /*this is the  position of the lis when the animation ends which is their original position before hiding*/
+  transform: translateX(0);
+  transition-delay: 0.3s; /*so it comes in a little bit after the rotation*/
+}-->

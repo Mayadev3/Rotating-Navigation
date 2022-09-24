@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+* {
+  box-sizing: border-box; /*so padding and border doesnt effect the width and height of the element*/
+}
+
+body {
+  font-family: "Lato", sand-serif;
+  color: #014451;
+  background-color: #014451; /*here the entire page is this color*/
+  margin: 0;
+  overflow-x: hidden;
+}
+.container {
+  background-color: #fff;
+  transition: transform 0.5s linear; /* linear means it keeps it at one speed throughout..with ease it starts slow and goes faster*/
+  transform-origin: top left;
+  width: 100vw; /*the container take the whole page width*/
+  min-height: 100vh; /*if i just put height:100vh, it will only take the height of the height of the screen, but the content has a bigger height than the viewport height so it will over flow and the bottom paragraph will disappear behind the image, so we need min-height to be 100vh so now all the content can be as big as i want it in height without anything disappearing behind*/
+  padding: 110px;
+}
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.content h1 {
+  margin: 0;
+}
+.content p {
+  line-height: 1.5;
+}
+.content img {
+  max-width: 100%;
+}
+
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+}
+.circle {
+  background-color: #0694a2;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.5s linear;
+}
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+.circle button {
+  position: absolute;
+  color: white;
+  font-size: 26px;
+  border: none;
+  background: transparent;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+}
+.circle button#open {
+  top: 64%;
+  left: 60%;
+}
+.circle button#close {
+  top: 63%;
+  left: 26%;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  bottom: 20px;
+  color: white;
+}
+nav ul {
+  list-style: none;
+}
+nav ul li i {
+  margin-right: 10px;
+}
+nav ul li {
+  font-size: 24px;
+  margin: 10px;
+  transform: translateX(-150px);
+  transition: transform 0.5s linear;
+}
+nav ul li + li {
+  margin-left: 33px;
+  transform: translateX(-200px);
+}
+nav ul li + li + li {
+  margin-left: 46px;
+  transform: translateX(-250px);
+}
+
+.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
